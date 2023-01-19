@@ -1,7 +1,8 @@
 <?php
 
-/* Задание №8 */
+class TextException extends Exception {
 
+};
 class Text 
 {
     private $title;                 /* Заголовок текста */
@@ -40,6 +41,15 @@ class Text
           $this->title = $title;
           $this->text = $text;
      }
+
+     public function checkText($text)
+     {
+        if(strlen($text) > 500) {
+            throw new TextException ('Длина текста превышает допустимое значение');
+        }
+     }
+
+     
 }
 
 $slug = "file.txt";
@@ -146,9 +156,9 @@ class FileStorage extends Storage
 
     public function logMessage($stringError)
     {
-        $this->logs[] = $stringError;
+        $logs[] = $stringError;
         // print_r($this->logs);
-        file_put_contents($this->slug, serialize($this->logs));
+        file_put_contents($this->slug, serialize($logs));
     }
 
     public function attachEvent ($method)
