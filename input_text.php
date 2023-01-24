@@ -1,6 +1,10 @@
 <?php 
 
     require_once './autoload.php';
+    use Contollers\Text;
+    use Controllers\Storage;
+    use Controllers\FileStorage;
+    use Controllers\View;
 
 ?>
 
